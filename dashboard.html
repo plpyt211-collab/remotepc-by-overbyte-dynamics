@@ -1,19 +1,218 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meine Remote-PCs</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RemoteHub – Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <main>
-    <h1>Meine Remote-PCs</h1>
+<body class="dashboard-page">
 
-    <div id="pcs">
-      <p>Keine Remote-PCs gefunden.</p>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">R</div>
+      <span>Remote<span>Hub</span></span>
     </div>
 
-    <button id="logout">Abmelden</button>
+    <nav class="navigation">
+      <a href="#" class="nav-item active">
+        <span>▦</span>
+        Übersicht
+      </a>
+
+      <a href="#" class="nav-item">
+        <span>▣</span>
+        Meine Geräte
+      </a>
+
+      <a href="#" class="nav-item">
+        <span>◷</span>
+        Aktivitäten
+      </a>
+
+      <a href="#" class="nav-item">
+        <span>⚙</span>
+        Einstellungen
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="support-box">
+        <div class="support-icon">?</div>
+        <strong>Brauchst du Hilfe?</strong>
+        <small>Unser Support ist für dich da.</small>
+        <a href="#">Support öffnen →</a>
+      </div>
+
+      <button id="logout" class="logout-button">
+        <span>↪</span>
+        Abmelden
+      </button>
+    </div>
+  </aside>
+
+  <main class="dashboard-main">
+    <header class="dashboard-header">
+      <div class="mobile-menu">☰</div>
+
+      <div>
+        <p class="header-date">MONTAG, 15. SEPTEMBER 2026</p>
+        <h1>Guten Morgen 👋</h1>
+      </div>
+
+      <div class="profile">
+        <div class="notification">♢<span></span></div>
+        <div class="avatar">DU</div>
+        <div class="profile-info">
+          <strong>Dein Account</strong>
+          <small>Administrator</small>
+        </div>
+        <span class="profile-arrow">⌄</span>
+      </div>
+    </header>
+
+    <section class="welcome-card">
+      <div>
+        <div class="status-label">
+          <span class="status-dot"></span>
+          Alle Systeme funktionieren
+        </div>
+
+        <h2>Deine Geräte sind bereit.</h2>
+        <p>Verbinde dich mit einem deiner Remote-PCs und arbeite direkt los.</p>
+      </div>
+
+      <div class="welcome-decoration">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="decoration-pc">▣</div>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-top">
+          <span>Geräte gesamt</span>
+          <div class="stat-icon purple">▣</div>
+        </div>
+        <strong>04</strong>
+        <small><em>+1</em> diesen Monat</small>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span>Online</span>
+          <div class="stat-icon green">●</div>
+        </div>
+        <strong>03</strong>
+        <small class="green-text">Alle erreichbar</small>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-top">
+          <span>Verbindungszeit</span>
+          <div class="stat-icon blue">◷</div>
+        </div>
+        <strong>99,8%</strong>
+        <small><em>+0,4%</em> gegenüber letzter Woche</small>
+      </div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <h2>Meine Remote-PCs</h2>
+        <p>Wähle ein Gerät aus, um eine Verbindung herzustellen.</p>
+      </div>
+
+      <button class="add-device-button">+ Gerät hinzufügen</button>
+    </section>
+
+    <section class="pc-grid">
+      <article class="pc-card featured-card">
+        <div class="pc-card-top">
+          <div class="pc-device-icon purple-bg">▣</div>
+          <div class="online-status">
+            <span></span>
+            Online
+          </div>
+          <button class="more-button">•••</button>
+        </div>
+
+        <h3>Gaming-PC</h3>
+        <p class="pc-location">⌖ München · Windows 11</p>
+
+        <div class="pc-details">
+          <div>
+            <span>CPU</span>
+            <strong>32%</strong>
+          </div>
+          <div>
+            <span>RAM</span>
+            <strong>58%</strong>
+          </div>
+          <div>
+            <span>Ping</span>
+            <strong>18 ms</strong>
+          </div>
+        </div>
+
+        <a href="#" class="connect-button">Verbinden <span>→</span></a>
+      </article>
+
+      <article class="pc-card">
+        <div class="pc-card-top">
+          <div class="pc-device-icon blue-bg">▣</div>
+          <div class="online-status">
+            <span></span>
+            Online
+          </div>
+          <button class="more-button">•••</button>
+        </div>
+
+        <h3>Arbeitsrechner</h3>
+        <p class="pc-location">⌖ Berlin · Windows 10</p>
+
+        <div class="pc-details">
+          <div>
+            <span>CPU</span>
+            <strong>14%</strong>
+          </div>
+          <div>
+            <span>RAM</span>
+            <strong>42%</strong>
+          </div>
+          <div>
+            <span>Ping</span>
+            <strong>24 ms</strong>
+          </div>
+        </div>
+
+        <a href="#" class="connect-button">Verbinden <span>→</span></a>
+      </article>
+
+      <article class="pc-card">
+        <div class="pc-card-top">
+          <div class="pc-device-icon orange-bg">◇</div>
+          <div class="offline-status">
+            <span></span>
+            Offline
+          </div>
+          <button class="more-button">•••</button>
+        </div>
+
+        <h3>Testserver</h3>
+        <p class="pc-location">⌖ Frankfurt · Ubuntu</p>
+
+        <div class="pc-details">
+          <div>
+            <span>Zuletzt online</span>
+            <strong>vor 2 Std.</strong>
+          </div>
+        </div>
+
+        <a href="#" class="connect-button disabled">Nicht verfügbar</a>
+      </article>
+    </section>
   </main>
 
   <script type="module">
@@ -30,12 +229,6 @@
     if (!data.session) {
       window.location.href = "index.html";
     }
-
-    document.querySelector("#pcs").innerHTML = `
-      <a href="https://DEIN-GUACAMOLE-SERVER/client.xhtml">
-        Remote-PC öffnen
-      </a>
-    `;
 
     document.querySelector("#logout").addEventListener("click", async () => {
       await supabase.auth.signOut();
