@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meine Remote-PCs</title>
+</head>
+<body>
+  <main>
+    <h1>Meine Remote-PCs</h1>
+
+    <div id="pcs">
+      <p>Keine Remote-PCs gefunden.</p>
+    </div>
+
+    <button id="logout">Abmelden</button>
+  </main>
+
+  <script type="module">
+    import { createClient } from
+      "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+    const supabase = createClient(
+      "https://DEIN-PROJEKT.supabase.co",
+      "DEIN_PUBLIC_ANON_KEY"
+    );
+
+    const { data } = await supabase.auth.getSession();
+
+    if (!data.session) {
+      window.location.href = "index.html";
+    }
+
+    document.querySelector("#pcs").innerHTML = `
+      <a href="https://DEIN-GUACAMOLE-SERVER/client.xhtml">
+        Remote-PC öffnen
+      </a>
+    `;
+
+    document.querySelector("#logout").addEventListener("click", async () => {
+      await supabase.auth.signOut();
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
