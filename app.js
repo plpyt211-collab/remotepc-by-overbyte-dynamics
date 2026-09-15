@@ -4,16 +4,33 @@ import { createClient } from
 const supabaseUrl = "https://DEIN-PROJEKT.supabase.co";
 const supabaseAnonKey = "DEIN_PUBLIC_ANON_KEY";
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const supabase = createClient(
+  supabaseUrl,
+  supabaseAnonKey
+);
 
 const form = document.querySelector("#loginForm");
 const message = document.querySelector("#message");
+const passwordInput = document.querySelector("#password");
+const togglePassword = document.querySelector("#togglePassword");
 
-form.addEventListener("submit", async (event) => {
+togglePassword?.addEventListener("click", () => {
+  const isPassword = passwordInput.type === "password";
+
+  passwordInput.type = isPassword ? "text" : "password";
+  togglePassword.textContent = isPassword ? "◉" : "○";
+});
+
+form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const email = document.querySelector("#email").value;
-  const password = document.querySelector("#password").value;
+  const password = passwordInput.value;
+  const button = form.querySelector("button[type='submit']");
+
+  button.disabled = true;
+  button.querySelector("span").textContent = "Anmeldung läuft …";
+  message.textContent = "";
 
   const { error } = await supabase.auth.signInWithPassword({
     email,
@@ -21,7 +38,9 @@ form.addEventListener("submit", async (event) => {
   });
 
   if (error) {
-    message.textContent = "Anmeldung fehlgeschlagen.";
+    message.textContent = "E-Mail oder Passwort ist nicht korrekt.";
+    button.disabled = false;
+    button.querySelector("span").textContent = "Anmelden";
     return;
   }
 
